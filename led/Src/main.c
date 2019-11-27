@@ -24,8 +24,19 @@ int main(void)
 
 	*PortdOutReg = *PortdOutReg | 0x00002000;	//led off
 	*PortdOutReg = *PortdOutReg & 0x00000000;	//led on
-	//*PortdOutReg = *PortdOutReg | 0x00002000;
 
+	/*uint32_t *ClkCtrReg  = (uint32_t*)0x40021018;		//code with the help of bitwise shift operation
+	uint32_t *PortDModeReg  = (uint32_t*)0x40011004;
+	uint32_t *PortdOutReg  = (uint32_t*)0x4001100c;
 
+	*ClkCtrReg = *ClkCtrReg|(1<<4);
+
+	*PortDModeReg = *PortDModeReg & ~(3<<20);
+	*PortDModeReg = *PortDModeReg | (1<<20);	//led on after mode define automatically
+
+	*PortdOutReg = *PortdOutReg | (1<<13);	//led off
+	*PortdOutReg = *PortdOutReg & (0);	//led on
+	*/
+	
 	while(1);
 }
